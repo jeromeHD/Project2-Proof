@@ -17,4 +17,11 @@ CREATE TABLE whiskeyTango (
     PRIMARY KEY (id)
 );
 
+CREATE TABLE recipes (
+    id INT NOT NULL AUTO_INCREMENT,
+    recipe_name VARCHAR(50),
+    ingredients TEXT,
+    prep TEXT,
+    PRIMARY KEY(id)
+);
 SELECT * FROM whiskeyTango;
