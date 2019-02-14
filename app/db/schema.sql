@@ -24,4 +24,3 @@ CREATE TABLE recipes (
     prep TEXT,
     PRIMARY KEY(id)
 );
-SELECT * FROM whiskeyTango;
