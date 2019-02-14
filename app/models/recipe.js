@@ -1,5 +1,5 @@
 module.exports = function (sequelize, Sequelize) {
-	var Recipe = sequelize.define("whiskey", {
+	var Recipe = sequelize.define("recipe", {
 		id: {
 			autoIncrement: true,
 			primaryKey: true,
