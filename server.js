@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 // For Passport
 
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true })); // session secret
+app.use(session({ secret: "whiskey proof", resave: true, saveUninitialized: true })); // session secret
 
 app.use(passport.initialize());
 
@@ -29,7 +29,7 @@ app.engine(
 app.set("view engine", ".hbs");
 
 app.get("/", function(req, res) {
-  res.send("Welcome to Passport with Sequelize");
+  res.send("Welcome to Proof");
 });
 
 //Models
