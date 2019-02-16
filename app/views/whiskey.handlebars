@@ -20,7 +20,30 @@
         <div class="row">
             {{#each Whiskey}}
 
-
+            <h2>{{this.whiskey_name}}</h2>
+            <ul>
+                <li>
+                    {{this.rating}}
+                </li>
+                <li>
+                    {{this.country}}
+                </li>
+                <li>
+                    {{this.category}}
+                </li>
+                <li>
+                    {{this.price}}
+                </li>
+                <li>
+                    {{this.abv}}
+                </li>
+                <li>
+                    {{this.age}}
+                </li>
+                <li>
+                    {{this.brand}}
+                </li>
+            </ul>
 
             {{/each}}
         </div>
