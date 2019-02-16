@@ -8,7 +8,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home</a>
                 <a class="nav-item nav-link" href="#">Whiskeys</a>
                 <a class="nav-item nav-link" href="#">Cocktail Recipes<span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="#">Log Out</a>
@@ -21,6 +20,18 @@
         <div class="row">
             {{#each Recipe}}
 
+            <h2>{{this.recipe_name}}</h2>
+
+            <ul>
+                <li>
+                    {{this.ingredients}}
+                </li>
+                <li>
+                    <p>
+                        {{this.prep}}
+                    </p>
+                </li>
+            </ul>
             {{/each}}
             <div class="col-md-2 col-sm-2">
                 <a class="btn btn-light" href="/">New Recipe</a>
