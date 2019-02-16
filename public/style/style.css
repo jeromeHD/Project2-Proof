@@ -1,0 +1,18 @@
+body {
+  background-image: url("../assets/bar_background.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.navbar-brand {
+  font-family: "Monoton", cursive;
+  font-size: 40px;
+}
+
+.navbar {
+  opacity: 0.8;
+}
+
+.navbar-nav {
+  display: inline-block;
+}
