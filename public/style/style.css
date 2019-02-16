@@ -12,7 +12,3 @@ body {
 .navbar {
   opacity: 0.8;
 }
-
-.navbar-nav {
-  display: inline-block;
-}
