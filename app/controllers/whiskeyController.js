@@ -27,6 +27,12 @@ module.exports = {
 		}).then(data => {
 			cb(createUser(db));
 		})
+	},
+
+	getAllRecipes: (cb) => {
+		db.recipe.findAll().then(data => {
+			cb(data);
+		});
 	}
 }
 
