@@ -1,3 +1,5 @@
+USE whiskey_db;
+
 INSERT INTO recipes
     (recipe_name, ingredients, prep)
 VALUES
