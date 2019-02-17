@@ -38,7 +38,9 @@ module.exports = function (sequelize, Sequelize) {
 		brand: {
 			type: Sequelize.STRING
 		},
-	});
+	}, {
+			timestamps: false
+		});
 
 	return Whiskey;
 };
