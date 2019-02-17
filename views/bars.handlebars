@@ -1,15 +1,16 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Proof<span class="sr-only">(current)</span></a>
+        <a class="navbar-brand" href="#">Proof</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Home</a>
                 <a class="nav-item nav-link" href="#">Whiskeys</a>
-                <a class="nav-item nav-link" href="#">Cocktail Recipes</a>
+                <a class="nav-item nav-link" href="#">Cocktail Recipes<span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="#">Locate a Bar</a>
                 <a class="nav-item nav-link" href="#">Log Out</a>
             </div>
@@ -17,20 +18,26 @@
     </nav>
 
 
-    <div class="container profile">
+    <div class="locate a bar">
         <div class="row">
-            {{#each User}}
+            {{#each user}}
 
-            <h2>{{this.firstname}} {{this.lastname}}</h2>
-            <h3>{{this.username}}</h3>
-            <p>{{this.about}}</p>
-            <p>{{this.favorite_bar}}</p>
+            <h3>{{this.favorite_bar}}</h3>
 
             {{/each}}
+            <div class="col-md-2 col-sm-2">
+                <a class="btn btn-light" href="/">Locate a Bar</a>
+            </div>
+        </div>
+        <div class="row">
+            {{#each bars}}
+
+            {{/each}}
+            <div class="col-md-2 col-sm-2">
+                <a class="btn btn-light" href="/">Locate a Bar</a>
+            </div>
         </div>
     </div>
-
-
 </body>
 
 </html>
