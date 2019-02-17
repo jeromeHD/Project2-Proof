@@ -24,6 +24,7 @@ app.use(passport.session()); // persistent login sessions
 //For Handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+app.use(express.static(path.join(__dirname, '/public')));
 
 //Models
 var models = require("./app/models");

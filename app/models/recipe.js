@@ -18,7 +18,9 @@ module.exports = function (sequelize, Sequelize) {
 		prep: {
 			type: Sequelize.TEXT,
 		},
-	});
+	}, {
+			timestamps: false
+		});
 
 	return Recipe;
 };
