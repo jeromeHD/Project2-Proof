@@ -26,7 +26,7 @@ module.exports = function(sequelize, Sequelize) {
 
     favorite_bar: {
       name: Sequelize.TEXT
-    }
+    },
 
     email: {
       type: Sequelize.STRING,
