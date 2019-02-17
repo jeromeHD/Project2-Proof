@@ -12,3 +12,23 @@ body {
 .navbar {
   opacity: 0.8;
 }
+
+#container-login {
+  background: lightgray;
+  opacity: 0.95;
+  width: 720px;
+  margin: 100px;
+  margin-left: 200px;
+  padding: 60px;
+  border-radius: 25px;
+}
+
+#container-whiskey {
+  background: lightgray;
+  opacity: 0.95;
+  width: 800px;
+  margin: 100px;
+  margin-left: 200px;
+  padding: 60px;
+  border-radius: 25px;
+}
