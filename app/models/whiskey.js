@@ -1,46 +1,51 @@
-module.exports = function (sequelize, Sequelize) {
-	var Whiskey = sequelize.define("whiskey", {
-		id: {
-			autoIncrement: true,
-			primaryKey: true,
-			type: Sequelize.INTEGER
-		},
 
-		whiskey_name: {
-			type: Sequelize.STRING,
-			notEmpty: true
-		},
+module.exports = function(sequelize, Sequelize) {
+  var Whiskey = sequelize.define(
+    "whiskey",
+    {
+      id: {
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
 
-		rating: {
-			type: Sequelize.INTEGER,
-		},
+      whiskey_name: {
+        type: Sequelize.STRING,
+        notEmpty: true
+      },
 
-		country: {
-			type: Sequelize.STRING,
-		},
+      rating: {
+        type: Sequelize.INTEGER
+      },
 
-		category: {
-			type: Sequelize.STRING,
-		},
+      country: {
+        type: Sequelize.STRING
+      },
 
-		price: {
-			type: Sequelize.INTEGER,
-		},
+      category: {
+        type: Sequelize.STRING
+      },
 
-		abv: {
-			type: Sequelize.INTEGER,
-		},
+      price: {
+        type: Sequelize.INTEGER
+      },
 
-		age: {
-			type: Sequelize.INTEGER,
-		},
+      abv: {
+        type: Sequelize.INTEGER
+      },
 
-		brand: {
-			type: Sequelize.STRING
-		},
-	}, {
-			timestamps: false
-		});
+      age: {
+        type: Sequelize.INTEGER
+      },
 
-	return Whiskey;
+      brand: {
+        type: Sequelize.STRING
+      }
+    },
+    {
+      timestamps: false
+    }
+  );
+
+  return Whiskey;
 };
