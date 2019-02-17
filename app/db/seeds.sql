@@ -1,6 +1,6 @@
 USE whiskey_db;
 
-INSERT INTO whiskeyTango (whiskey_name, rating, country, category, price, abv, age, brand) VALUES
+INSERT INTO whiskeys (whiskey_name, rating, country, category, price, abv, age, brand) VALUES
 ("Canadian Hunter Canadian Whisky", 40, "Canada", "Blended", 9, 40, NULL, "Canadian Hunter"),
 ("Canadian LTD Blended Canadian Whiskey", 43, "Canada", "Blended", 10, NULL, NULL, "Canadian LTD"),
 ("Kellan Irish Whiskey", 47, "Ireland", "Blended", 20, 40, NULL, "Kellan"),
