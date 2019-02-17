@@ -16,15 +16,12 @@ module.exports = function(sequelize, Sequelize) {
       ingredients: {
         type: Sequelize.TEXT
       },
-
-      prep: {
-        type: Sequelize.TEXT
-      }
-    },
-    {
-      timestamps: false
-    }
-  );
+		prep: {
+			type: Sequelize.TEXT,
+		},
+	}, {
+			timestamps: false
+		});
 
   return Recipe;
 };
