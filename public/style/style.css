@@ -13,16 +13,6 @@ body {
   opacity: 0.8;
 }
 
-#container-login {
-  background: lightgray;
-  opacity: 0.95;
-  width: 720px;
-  margin: 100px;
-  margin-left: 200px;
-  padding: 60px;
-  border-radius: 25px;
-}
-
 h3 {
   margin-bottom: 15px;
 }
@@ -77,4 +67,28 @@ h3 {
   border-radius: 25px;
   height: 520px; /* or any value */
   overflow-y: auto;
+}
+
+/* Sign In CSS */
+
+#container-login {
+  background: lightgray;
+  opacity: 0.95;
+  width: 720px;
+  margin: 100px;
+  margin-left: 200px;
+  padding: 60px;
+  border-radius: 25px;
+}
+
+/* Sign Up CSS */
+
+#container-signup {
+  background: lightgray;
+  opacity: 0.95;
+  width: 720px;
+  margin: 100px;
+  margin-left: 200px;
+  padding: 60px;
+  border-radius: 25px;
 }
