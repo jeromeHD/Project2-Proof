@@ -1,56 +1,56 @@
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/profile">Proof</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/whiskeys">Whiskeys</a>
-                <a class="nav-item nav-link" href="/recipes">Cocktail Recipes<span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Locate a Bar</a>
-                <a class="nav-item nav-link" href="/">Log Out</a>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="/profile">Proof</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+			aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link" href="/whiskeys">Whiskeys</a>
+				<a class="nav-item nav-link" href="/recipes">Cocktail Recipes<span class="sr-only">(current)</span></a>
+				<a class="nav-item nav-link" href="#">Locate a Bar</a>
+				<a class="nav-item nav-link" href="/">Log Out</a>
 
-            </div>
-        </div>
-    </nav>
+			</div>
+		</div>
+	</nav>
 
 
-    <div class="row">
-        <div class="col-md-9" id="container-recipe">
+	<div class="row">
+		<div class="col-md-9" id="container-recipe">
 
-            <h3>Cocktail Recipes</h3>
-            <p>
+			<h3>Cocktail Recipes</h3>
+			<div class="col-12 d-flex flex-row flex-wrap">
 
-                {{#each Recipe}}
+				{{#each Recipe}}
 
-                <div class="card" style="width: 18rem;">
-                    <div class="card-header">
-                        {{this.recipe_name}}
-                    </div>
+				<div class="card col-12 col-sm-4">
+					<div class="card-header">
+						{{this.recipe_name}}
+					</div>
 
-                    <ul class="list-group list-group-flush">
+					<ul class="list-group list-group-flush">
 
-                        <li class="list-group-item">
-                            {{this.ingredients}}
-                        </li>
-                        <li class="list-group-item">
-                            <p>
-                                {{this.prep}}
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-                {{/each}}
+						<li class="list-group-item">
+							{{this.ingredients}}
+						</li>
+						<li class="list-group-item">
+							<p>
+								{{this.prep}}
+							</p>
+						</li>
+					</ul>
+				</div>
+				{{/each}}
 
-            </p>
-            <div class="col-md-2 col-sm-2">
-                <a class="btn btn-light" href="/">New Recipe</a>
-            </div>
-        </div>
-    </div>
+			</div>
+			<div class="col-md-2 col-sm-2">
+				<a class="btn btn-light" href="/">New Recipe</a>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>

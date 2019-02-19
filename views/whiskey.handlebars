@@ -1,59 +1,59 @@
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/profile">Proof</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/whiskeys">Whiskeys<span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="/recipes">Cocktail Recipes</a>
-                <a class="nav-item nav-link" href="#">Locate a Bar</a>
-                <a class="nav-item nav-link" href="/">Log Out</a>
-            </div>
-        </div>
-    </nav>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="/profile">Proof</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+			aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link" href="/whiskeys">Whiskeys<span class="sr-only">(current)</span></a>
+				<a class="nav-item nav-link" href="/recipes">Cocktail Recipes</a>
+				<a class="nav-item nav-link" href="#">Locate a Bar</a>
+				<a class="nav-item nav-link" href="/">Log Out</a>
+			</div>
+		</div>
+	</nav>
 
-    <div id="container-whiskey" style="overflow-y: scroll">
-        <div class="row">
-            <div class="col-8">
-                <h3>Whiskeys</h3>
-                {{#each Whiskey}}
-                <div class="card" style="width: 18rem;">
-                    <div class="card-header">
-                        {{this.whiskey_name}}
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            Rating: {{this.rating}}
-                        </li>
-                        <li class="list-group-item">
-                            Country: {{this.country}}
-                        </li>
-                        <li class="list-group-item">
-                            Category: {{this.category}}
-                        </li>
-                        <li class="list-group-item">
-                            Price: ${{this.price}}
-                        </li>
-                        <li class="list-group-item">
-                            ABV: {{this.abv}}%
-                        </li>
-                        <li class="list-group-item">
-                            Age: {{this.age}} years
-                        </li>
-                        <li class="list-group-item">
-                            Brand: {{this.brand}}
-                        </li>
-                    </ul>
+	<div id="container-whiskey" style="overflow-y: scroll">
+		<h3>Whiskeys</h3>
+		<div class="row">
+			<div class="col-12 d-flex flex-row flex-wrap">
 
-                    {{/each}}
-                </div>
-            </div>
-        </div>
-    </div>
+				{{#each Whiskey}}
+				<div class="card col-12 col-sm-4">
+					<div class="card-header">
+						{{this.whiskey_name}}
+					</div>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+							Rating: {{this.rating}}
+						</li>
+						<li class="list-group-item">
+							Country: {{this.country}}
+						</li>
+						<li class="list-group-item">
+							Category: {{this.category}}
+						</li>
+						<li class="list-group-item">
+							Price: ${{this.price}}
+						</li>
+						<li class="list-group-item">
+							ABV: {{this.abv}}%
+						</li>
+						<li class="list-group-item">
+							Age: {{this.age}} years
+						</li>
+						<li class="list-group-item">
+							Brand: {{this.brand}}
+						</li>
+					</ul>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
