@@ -5,8 +5,19 @@ var path = require("path");
 var Sequelize = require("sequelize");
 var env = process.env.NODE_ENV || "development";
 var config = require(path.join(__dirname, "..", "config", "config.json"))[env];
-var sequelize = new Sequelize(config.database, config.username, config.password, config);
 var db = {};
+
+if (process.env.JAWSDB_URL) {
+  sequelize = new Sequelize(process.env.JAWSDB_URL, {
+    dialect: "mysql",
+    protocol: "mysql",
+    port: match[4],
+    host: match[3],
+    logging: true //false
+  });
+} else {
+  var sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
 
 fs.readdirSync(__dirname)
   .filter(function(file) {
