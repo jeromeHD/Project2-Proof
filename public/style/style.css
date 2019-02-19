@@ -23,12 +23,58 @@ body {
   border-radius: 25px;
 }
 
+h3 {
+  margin-bottom: 15px;
+}
+
+/* Whiskey Page CSS*/
+
 #container-whiskey {
   background: lightgray;
   opacity: 0.95;
-  width: 800px;
-  margin: 100px;
+  width: 960px;
+  margin: 70px;
   margin-left: 200px;
   padding: 60px;
   border-radius: 25px;
+  height: 520px; /* or any value */
+  overflow-y: auto;
+}
+
+.card-header {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Recipe Page CSS*/
+
+#container-recipe {
+  background: lightgray;
+  opacity: 0.95;
+  width: 960px;
+  margin: 70px;
+  margin-left: 200px;
+  padding: 60px;
+  border-radius: 25px;
+  height: 520px; /* or any value */
+  overflow-y: auto;
+}
+
+.btn {
+  background: #6293fd;
+  opacity: 1;
+}
+
+/* Profile Page CSS*/
+
+.container-profile {
+  background: lightgray;
+  opacity: 0.95;
+  width: 960px;
+  margin: 70px;
+  margin-left: 200px;
+  padding: 60px;
+  border-radius: 25px;
+  height: 520px; /* or any value */
+  overflow-y: auto;
 }
