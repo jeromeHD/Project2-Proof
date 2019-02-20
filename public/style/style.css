@@ -63,7 +63,7 @@ h2 {
 }
 
 .card {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 /* Profile Page CSS*/
@@ -114,6 +114,21 @@ h2 {
 /* Bars CSS*/
 
 #container-bar {
+  background: lightgray;
+  opacity: 0.95;
+  width: 960px;
+  margin: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 60px;
+  border-radius: 25px;
+  height: 520px;
+  overflow-y: auto;
+}
+
+/* New Recipe CSS */
+
+.container-newrecipe {
   background: lightgray;
   opacity: 0.95;
   width: 960px;
