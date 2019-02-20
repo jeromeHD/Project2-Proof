@@ -33,6 +33,10 @@ module.exports = {
 		db.recipe.findAll().then(data => {
 			cb(data);
 		});
+	},
+
+	getWhiskeyFaves: (userId, cb) => {
+		db.user.get
 	}
 }
 
