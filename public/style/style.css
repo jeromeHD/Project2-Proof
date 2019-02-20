@@ -13,6 +13,69 @@ body {
   opacity: 0.8;
 }
 
+h3 {
+  margin-bottom: 15px;
+  font-family: "Nixie One", cursive;
+}
+
+h2 {
+  font-family: "Nixie One", cursive;
+}
+
+/* Whiskey Page CSS*/
+
+#container-whiskey {
+  background: lightgray;
+  opacity: 0.95;
+  width: 960px;
+  margin: 70px;
+  margin-left: 200px;
+  padding: 60px;
+  border-radius: 25px;
+  height: 520px;
+  overflow-y: auto;
+}
+
+.card-header {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Recipe Page CSS*/
+
+#container-recipe {
+  background: lightgray;
+  opacity: 0.95;
+  width: 960px;
+  margin: 70px;
+  margin-left: 200px;
+  padding: 60px;
+  border-radius: 25px;
+  height: 520px;
+  overflow-y: auto;
+}
+
+.btn {
+  background: #6293fd;
+  opacity: 1;
+}
+
+/* Profile Page CSS*/
+
+.container-profile {
+  background: lightgray;
+  opacity: 0.95;
+  width: 960px;
+  margin: 70px;
+  margin-left: 200px;
+  padding: 60px;
+  border-radius: 25px;
+  height: 520px; /* or any value */
+  overflow-y: auto;
+}
+
+/* Sign In CSS */
+
 #container-login {
   background: lightgray;
   opacity: 0.95;
@@ -23,12 +86,28 @@ body {
   border-radius: 25px;
 }
 
-#container-whiskey {
+/* Sign Up CSS */
+
+#container-signup {
   background: lightgray;
   opacity: 0.95;
-  width: 800px;
+  width: 720px;
   margin: 100px;
   margin-left: 200px;
   padding: 60px;
   border-radius: 25px;
+}
+
+/* Bars CSS*/
+
+#container-bar {
+  background: lightgray;
+  opacity: 0.95;
+  width: 960px;
+  margin: 70px;
+  margin-left: 200px;
+  padding: 60px;
+  border-radius: 25px;
+  height: 520px;
+  overflow-y: auto;
 }

@@ -8,8 +8,8 @@ exports.signin = function(req, res) {
   res.render("signin");
 };
 
-exports.dashboard = function(req, res) {
-  res.render("dashboard");
+exports.main = function(req, res) {
+  res.render("main");
 };
 
 exports.logout = function(req, res) {
