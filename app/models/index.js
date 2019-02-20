@@ -8,11 +8,15 @@ var config = require(path.join(__dirname, "..", "config", "config.json"))[env];
 var db = {};
 
 if (process.env.JAWSDB_URL) {
+  const jawsDB = process.env.JAWSDB_URL.split(":");
+  const host = jawsDB[2].split("@")[1];
+  const port = jawsDB[3].split("/")[0];
+
   sequelize = new Sequelize(process.env.JAWSDB_URL, {
     dialect: "mysql",
     protocol: "mysql",
-    port: match[4],
-    host: match[3],
+    port,
+    host,
     logging: true //false
   });
 } else {
