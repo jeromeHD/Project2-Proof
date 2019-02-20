@@ -47,9 +47,5 @@ module.exports = function (sequelize, Sequelize) {
 		}
 	);
 
-	Whiskey.associate = (models) => {
-		Whiskey.hasMany(models.whiskeyFaves);
-	}
-
 	return Whiskey;
 };

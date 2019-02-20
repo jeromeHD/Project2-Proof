@@ -1,5 +1,4 @@
 var control = require("../controllers/whiskeyController");
-var authController = require("../controllers/authcontroller");
 
 module.exports = (app, passport) => {
 
@@ -8,7 +7,10 @@ module.exports = (app, passport) => {
 	});
 
 	app.get("/profile", isLoggedIn, (req, res) => {
-		res.render("profile", { User: [req.user] });
+		control.getUser(req.user.id, (user) => {
+			console.log("user:" + JSON.stringify(user));
+			res.render("profile", { User: user });
+		});
 	});
 
 	app.get("/recipes", isLoggedIn, (req, res) => {
@@ -20,7 +22,6 @@ module.exports = (app, passport) => {
 
 	app.get("/whiskeys", isLoggedIn, (req, res) => {
 		control.getAllWhiskeys((data) => {
-			console.log(data);
 			res.render("whiskey", { Whiskey: data });
 		});
 	});
@@ -30,7 +31,10 @@ module.exports = (app, passport) => {
 	});
 
 	app.post("/newrecipe", (req, res) => {
+		control.addRecipe(req.body.name, req.body.ingredients, req.body.prep, (data) => {
 
+			res.redirect("recipes");
+		})
 	});
 
 	app.get("/bars", isLoggedIn, (req, res) => {
@@ -53,6 +57,20 @@ module.exports = (app, passport) => {
 			failureRedirect: "signup"
 		})
 	);
+
+	app.put("/whiskeyfave/:whiskey", (req, res) => {
+		control.toggleWhiskeyFavorite(req.user.id, req.params.whiskey);
+
+		res.status(200);
+		res.end();
+	});
+
+	app.put("/recipefave/:recipe", (req, res) => {
+		control.toggleRecipeFavorite(req.user.id, req.params.recipe);
+
+		res.status(200);
+		res.end();
+	});
 
 	app.get("/logout", function (req, res) {
 		req.session.destroy(function (err) {

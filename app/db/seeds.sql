@@ -287,7 +287,3 @@ Whyte & Mackay \"\"Old Luxury\"\" 19 Year Old Aged Blended Scotch Whisky\"", 74,
 ("A.H. Hirsch Finest Reserve 20 Bourbon", NULL, "USA", "Bourbon", 280, 45, 16, "A.H. Hirsch"),
 ("Elijah Craig 18 Year Bourbon", NULL, "USA", "Bourbon", 40, 45, 18, "Elijah Craig"),
 ("Kavalan Solist Vinho Single Malt Whisky", NULL, "Taiwan", "Single Malt", 100, 59.2, NULL, "Kavalan");
-
-
-SELECT *
-FROM whiskeyTango;

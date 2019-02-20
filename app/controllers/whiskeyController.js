@@ -7,26 +7,10 @@ module.exports = {
 		});
 	},
 
-	getAllUsers: (cb) => {
-		db.user.findAll().then((data) => {
-			var users = [];
-
-			data.forEach(user => {
-				users.push(createUser(user));
-			});
-
-			cb(users);
-		})
-	},
-
 	getUser: (id, cb) => {
-		db.user.find({
-			where: {
-				id: id
-			}
-		}).then(data => {
-			cb(createUser(db));
-		})
+		db.user.findByPk(id).then(user => {
+			createUser(user, cb);
+		});
 	},
 
 	getAllRecipes: (cb) => {
@@ -36,18 +20,54 @@ module.exports = {
 	},
 
 	getWhiskeyFaves: (userId, cb) => {
-		db.user.get
+		db.user.findByPk(userId).then(user => {
+			user.getWhiskeys(cb);
+		});
+	},
+
+	toggleWhiskeyFavorite: (userID, whiskeyID) => {
+		db.whiskeyFaves.findOrCreate({ where: { userId: userID, whiskeyId: whiskeyID } })
+			.spread((fave, created) => {
+				if (!created) {
+					fave.destroy();
+				}
+			});
+	},
+
+	toggleRecipeFavorite: (userID, recipeID) => {
+		db.faveRecipes.findOrCreate({ where: { userId: userID, recipeId: recipeID } })
+			.spread((fave, created) => {
+				if (!created) {
+					fave.destroy();
+				}
+			});
+	},
+
+	addRecipe: (name, ingredients, instructions, cb) => {
+		db.recipe.create({ recipe_name: name, ingredients: ingredients, prep: instructions }).then(data => {
+			cb(data);
+		})
 	}
+
 }
 
-function createUser(data) {
-	return {
-		firstname: data.firstname,
-		lastname: data.lastName,
-		username: data.username,
-		id: data.id,
-		email: data.email,
-		about: data.about,
-		last_login: data.last_login
-	}
+function createUser(user, cb) {
+	user.getWhiskeys({ include: [db.whiskey] }).then(whiskeys => {
+
+
+
+		user.getRecipes({ include: [db.recipe] }).then(recipes => {
+
+			cb({
+				firstname: user.firstname,
+				lastname: user.lastName,
+				id: user.id,
+				email: user.email,
+				about: user.about,
+				last_login: user.last_login,
+				whiskeys: whiskeys,
+				recipes: recipes
+			});
+		})
+	});
 }

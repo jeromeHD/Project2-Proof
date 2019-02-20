@@ -8,5 +8,10 @@ module.exports = function (sequelize, Sequelize) {
 
 	});
 
+	faveRecipes.associate = (models) => {
+		faveRecipes.belongsTo(models.recipe);
+	}
+
+
 	return faveRecipes;
 };

@@ -7,5 +7,9 @@ module.exports = function (sequelize, Sequelize) {
 		}
 	});
 
+	whiskeyFaves.associate = (models) => {
+		whiskeyFaves.belongsTo(models.whiskey);
+	}
+
 	return whiskeyFaves;
 };

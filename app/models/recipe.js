@@ -23,9 +23,5 @@ module.exports = function (sequelize, Sequelize) {
 			timestamps: false
 		});
 
-	Recipe.associate = (models) => {
-		Recipe.hasMany(models.faveRecipes);
-	}
-
 	return Recipe;
 };
