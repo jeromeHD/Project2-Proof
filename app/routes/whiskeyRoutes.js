@@ -7,7 +7,12 @@ module.exports = (app, passport) => {
 	});
 
 	app.get("/profile", isLoggedIn, (req, res) => {
-		control.getUser(req.user.id, (user) => {
+		var id;
+
+		if (req.query.id) id = req.query.id;
+		else id = req.user.id;
+
+		control.getUser(id, (user) => {
 			console.log("user:" + JSON.stringify(user));
 			res.render("profile", { User: user });
 		});
