@@ -8,7 +8,7 @@ module.exports = (app, passport) => {
 	});
 
 	app.get("/profile", isLoggedIn, (req, res) => {
-		res.render("profile")
+		res.render("profile", { User: [req.user] });
 	});
 
 	app.get("/recipes", isLoggedIn, (req, res) => {
