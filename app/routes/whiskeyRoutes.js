@@ -25,8 +25,16 @@ module.exports = (app, passport) => {
 		});
 	});
 
-	app.get("/bars", isLoggedIn, (req, res) => {
+	app.get("/newrecipe", isLoggedIn, (req, res) => {
+		res.render("newrecipe");
+	});
 
+	app.post("/newrecipe", (req, res) => {
+
+	});
+
+	app.get("/bars", isLoggedIn, (req, res) => {
+		res.render("bars");
 	});
 
 	app.get("/signup", function (req, res) {
