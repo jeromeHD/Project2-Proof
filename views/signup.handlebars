@@ -1,38 +1,31 @@
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Proof</a>
+		<a class="navbar-brand" href="/">Proof</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
 			aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="#">Home<span class="sr-only">(current)</span></a>
-				<a class="nav-item nav-link" href="#">Whiskeys</a>
-				<a class="nav-item nav-link" href="#">Cocktail Recipes</a>
-				<a class="nav-item nav-link" href="#">Locate a Bar</a>
-				<a class="nav-item nav-link" href="#">Log Out</a>
-			</div>
-		</div>
 	</nav>
 
-	<div>
+	<div id="container-signup">
 		<form id="signup" name="signup" method="post" action="/signup">
 			<label for="email">Email Address</label>
-			<input class="text" name="email" type="email" />
+			<input class="text" name="email" type="email" /><br>
 			<label for="firstname">Firstname</label>
-			<input name="firstname" type="text" />
+			<input name="firstname" type="text" /><br>
 			<label for="lastname">Lastname</label>
-			<input name="lastname" type="text" />
+			<input name="lastname" type="text" /><br>
 			<label for="password">Password</label>
-			<input name="password" type="password" />
+			<input name="password" type="password" /><br>
 			<label for="checkDate">Date of Birth</label>
-			<input class="date" type="date" />
+			<input class="date" type="date" /><br>
+			{{!-- <label for="favorite_bar">favorite_bar</label>
+			<input name="favorite_bar" type="text" /><br> --}}
 			<input class="btn" type="submit" value="Sign Up" />
 		</form>
 	</div>
-	<a class="nav-item nav-link" href="#">Locate a Bar</a>
+
 
 	<script type="text/javascript">
 
