@@ -7,6 +7,7 @@ var env = process.env.NODE_ENV || "development";
 var config = require(path.join(__dirname, "..", "config", "config.json"))[env];
 var db = {};
 
+console.log(process.env.JAWSDB_URL);
 if (process.env.JAWSDB_URL) {
   const jawsDB = process.env.JAWSDB_URL.split(":");
   const host = jawsDB[2].split("@")[1];
