@@ -29,7 +29,8 @@ h2 {
   opacity: 0.95;
   width: 960px;
   margin: 70px;
-  margin-left: 200px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 60px;
   border-radius: 25px;
   height: 520px;
@@ -48,7 +49,8 @@ h2 {
   opacity: 0.95;
   width: 960px;
   margin: 70px;
-  margin-left: 200px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 60px;
   border-radius: 25px;
   height: 520px;
@@ -56,8 +58,12 @@ h2 {
 }
 
 .btn {
-  background: #6293fd;
+  background: #92c6f1;
   opacity: 1;
+}
+
+.card {
+  margin-top: 15px;
 }
 
 /* Profile Page CSS*/
@@ -67,7 +73,8 @@ h2 {
   opacity: 0.95;
   width: 960px;
   margin: 70px;
-  margin-left: 200px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 60px;
   border-radius: 25px;
   height: 520px; /* or any value */
@@ -80,10 +87,16 @@ h2 {
   background: lightgray;
   opacity: 0.95;
   width: 720px;
+  height: auto;
   margin: 100px;
-  margin-left: 200px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 60px;
   border-radius: 25px;
+}
+
+.register {
+  margin-top: 25px;
 }
 
 /* Sign Up CSS */
@@ -93,7 +106,8 @@ h2 {
   opacity: 0.95;
   width: 720px;
   margin: 100px;
-  margin-left: 200px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 60px;
   border-radius: 25px;
 }
@@ -105,7 +119,8 @@ h2 {
   opacity: 0.95;
   width: 960px;
   margin: 70px;
-  margin-left: 200px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 60px;
   border-radius: 25px;
   height: 520px;
