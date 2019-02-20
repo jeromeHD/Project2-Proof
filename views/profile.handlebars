@@ -1,34 +1,34 @@
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/profile">Proof<span class="sr-only">(current)</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/whiskeys">Whiskeys</a>
-                <a class="nav-item nav-link" href="/recipes">Cocktail Recipes</a>
-                <a class="nav-item nav-link" href="#">Locate a Bar</a>
-                <a class="nav-item nav-link" href="/">Log Out</a>
-            </div>
-        </div>
-    </nav>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="/profile">Proof<span class="sr-only">(current)</span></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+			aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link" href="/whiskeys">Whiskeys</a>
+				<a class="nav-item nav-link" href="/recipes">Cocktail Recipes</a>
+				<a class="nav-item nav-link" href="#">Locate a Bar</a>
+				<a class="nav-item nav-link" href="/">Log Out</a>
+			</div>
+		</div>
+	</nav>
 
 
-    <div class="container-profile">
-        <div class="row">
-            {{#each User}}
+	<div class="container-profile">
+		<div class="row">
+			{{#each User}}
 
-            <h2>{{this.firstname}} {{this.lastname}}</h2>
-            <h4>{{this.username}}</h4>
-            <p>{{this.about}}</p>
-            <p>{{this.favorite_bar}}</p>
+			<h2>{{this.firstname}} {{this.lastname}}</h2>
+			<h4>{{this.username}}</h4>
+			{{!-- <p>{{this.about}}</p> --}}
+			{{!-- <p>{{this.favorite_bar}}</p> --}}
 
-            {{/each}}
-        </div>
-    </div>
+			{{/each}}
+		</div>
+	</div>
 
 
 </body>
