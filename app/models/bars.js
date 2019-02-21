@@ -1,5 +1,5 @@
-module.exports = function(sequelize, Sequelize) {
-  var bars = sequelize.define("bars", {
+module.exports = function (sequelize, Sequelize) {
+  var Bar = sequelize.define("bar", {
     id: {
       autoIncrement: true,
       primaryKey: true,
@@ -9,8 +9,17 @@ module.exports = function(sequelize, Sequelize) {
     bar_name: {
       type: Sequelize.STRING,
       notEmpty: true
+    },
+
+    bar_address: {
+      type: Sequelize.TEXT
+    },
+
+    place_id: {
+      type: Sequelize.STRING,
+      notEmpty: true
     }
   });
 
-  return bars;
+  return Bar;
 };

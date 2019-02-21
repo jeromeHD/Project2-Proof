@@ -28,7 +28,11 @@ h4 {
 }
 
 #map {
-  height: 100%;
+  height: 500px;
+}
+
+.map {
+  height: 200px;
 }
 
 /* Whiskey Page CSS*/

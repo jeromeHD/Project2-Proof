@@ -47,6 +47,18 @@ module.exports = {
 		db.recipe.create({ recipe_name: name, ingredients: ingredients, prep: instructions }).then(data => {
 			cb(data);
 		})
+	},
+
+	addBar: (name, address, placeID, cb) => {
+		db.bar.create({ bar_name: name, bar_address: address, place_id: placeID }).then(data => {
+			cb(data);
+		})
+	},
+
+	getAllBars: (cb) => {
+		db.bar.findAll().then(data => {
+			cb(data);
+		})
 	}
 
 }

@@ -13,14 +13,19 @@ module.exports = (app, passport) => {
 		else id = req.user.id;
 
 		control.getUser(id, (user) => {
-			console.log("user:" + JSON.stringify(user));
 			res.render("profile", { User: user });
 		});
 	});
 
 	app.get("/addbar", isLoggedIn, (req, res) => {
 		res.render("newbar");
-	})
+	});
+
+	app.post("/addbar", isLoggedIn, (req, res) => {
+		control.addBar(req.body.name, req.body.address, req.body.placeID, (data) => {
+			res.redirect("bars");
+		});
+	});
 
 	app.get("/recipes", isLoggedIn, (req, res) => {
 		control.getAllRecipes((data) => {
@@ -47,7 +52,10 @@ module.exports = (app, passport) => {
 	});
 
 	app.get("/bars", isLoggedIn, (req, res) => {
-		res.render("bars");
+		control.getAllBars(data => {
+			res.render("bars", { bars: data });
+		})
+
 	});
 
 	app.get("/signup", function (req, res) {

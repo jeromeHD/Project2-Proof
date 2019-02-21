@@ -17,52 +17,41 @@
 	</nav>
 
 	<div class="container jumbotron">
-		<div class="row">
+		<div class="row h-100">
 			<div class="col-12 col-sm-3">
 				<p>Search for bars!</p>
 				<input type="text" id="barName" placeholder="Bar">
-				<button class="btn btn-primary">Search</button>
+				<button id="search" class="btn btn-primary">Search</button>
+				<button id="select" class="btn btn-primary">Pick Selected Bar</button>
 			</div>
 
 			<div id="map" class="col-12 col-sm-9"></div>
 		</div>
 	</div>
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi3cbE_1LkN-5PsHkdttY3nJGJskmWwN0"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDenLsWmAmIc53qrRwdNpTZPQidd8dfV5g &libraries=places"></script>
 
 	<script>
-		// This example requires the Places library. Include the libraries=places
-		// parameter when you first load the API. For example:
-		// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
 		var map;
 		var service;
 		var infowindow;
+		var selected;
 
 		function initMap() {
-			var sydney = new google.maps.LatLng(-33.867, 151.195);
+			var raleigh = new google.maps.LatLng(35.780292, -78.6355412);
 
 			infowindow = new google.maps.InfoWindow();
 
 			map = new google.maps.Map(
-				document.getElementById('map'), { center: sydney, zoom: 15 });
+				document.getElementById('map'), { center: raleigh, zoom: 15 });
 
-			var request = {
-				query: 'Kings Raleigh',
-				fields: ['name', 'geometry'],
-			};
+			var request = constructQuery("Player's Retreat");
 
 			service = new google.maps.places.PlacesService(map);
 
-			service.findPlaceFromQuery(request, function (results, status) {
-				if (status === google.maps.places.PlacesServiceStatus.OK) {
-					for (var i = 0; i < results.length; i++) {
-						createMarker(results[i]);
-					}
-
-					map.setCenter(results[0].geometry.location);
-				}
-			});
+			service.findPlaceFromQuery(request, queryCB);
 		}
 
 		function createMarker(place) {
@@ -70,12 +59,64 @@
 				map: map,
 				position: place.geometry.location
 			});
+			console.log(place);
 
 			google.maps.event.addListener(marker, 'click', function () {
-				infowindow.setContent(place.name);
+				infowindow.setContent(place.name + "<br>" + place.formatted_address);
 				infowindow.open(map, this);
+				selected = place;
 			});
+
+			return marker;
 		}
+
+		function constructQuery(place) {
+			return {
+				query: place,
+				fields: ['formatted_address', 'geometry', 'id', 'name', 'place_id'],
+				locationBias: map.getCenter()
+			}
+		}
+
+		function queryCB(results, status) {
+			if (status === google.maps.places.PlacesServiceStatus.OK) {
+				var firstMarker = createMarker(results[0]);
+				for (var i = 1; i < results.length; i++) {
+					createMarker(results[i]);
+				}
+
+				map.setCenter(results[0].geometry.location);
+				infowindow.setContent(results[0].name + "<br>"
+					+ results[0].formatted_address + "<br>");
+				infowindow.open(map, firstMarker);
+				selected = results[0];
+			}
+		}
+
+		$(document).ready(() => {
+			initMap();
+			$("#search").on("click", (event) => {
+				service.findPlaceFromQuery(constructQuery($("#barName").val().trim()), queryCB)
+			});
+
+			$("#select").on("click", (event) => {
+				console.log(selected);
+
+				$.ajax(
+					{
+						method: "post",
+						url: "/addbar",
+						data: {
+							name: selected.name,
+							address: selected.formatted_address,
+							placeID: selected.place_id
+						},
+					}
+				).then(() => {
+					window.location = "bars";
+				})
+			})
+		})
 	</script>
 
 
