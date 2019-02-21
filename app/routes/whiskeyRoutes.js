@@ -67,13 +67,11 @@ module.exports = (app, passport) => {
 		res.render("signin");
 	});
 
-	app.post(
-		"/signup",
-		passport.authenticate("local-signup", {
-			successRedirect: "profile",
+	app.post("/signup", ageVerify, passport.authenticate("local-signup", {
+		successRedirect: "profile",
 
-			failureRedirect: "signup"
-		})
+		failureRedirect: "signup"
+	})
 	);
 
 	app.put("/whiskeyfave/:whiskey", (req, res) => {
@@ -116,4 +114,19 @@ module.exports = (app, passport) => {
 
 		res.redirect("/");
 	};
+
+	function ageVerify(req, res, next) {
+		if (req.body.date == "" || req.body.email == "" || req.body.firstname == "" || req.body.lastname == "" || req.body.password == "") {
+			res.redirect("signup");
+			console.log("here");
+		} else {
+			var birthday = new Date(req.body.date);
+
+			if ((Date.now() - birthday) > (365 * 21 * 24 * 60 * 60 * 1000)) {
+				next()
+			} else {
+				res.redirect("signup");
+			}
+		}
+	}
 };

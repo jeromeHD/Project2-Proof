@@ -13,11 +13,6 @@ body {
   opacity: 0.8;
 }
 
-.container {
-  height: 75vh;
-  overflow-y: scroll;
-}
-
 h3 {
   font-family: "Nixie One", cursive;
 }
@@ -40,17 +35,16 @@ h4 {
 
 /* Whiskey Page CSS*/
 
-#container-whiskey {
+#container {
   background: lightgray;
   opacity: 0.95;
-  width: 960px;
   margin: 70px;
   margin-left: auto;
   margin-right: auto;
   padding: 60px;
   border-radius: 25px;
-  height: 520px;
-  overflow-y: auto;
+  height: 75vh;
+  overflow-y: scroll;
 }
 
 .card-header {
@@ -155,4 +149,11 @@ h4 {
   border-radius: 25px;
   height: 520px;
   overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    #container {
+        width:100%;
+        height: unset;
+    }
 }

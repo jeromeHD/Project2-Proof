@@ -11,88 +11,86 @@
 				<a class="nav-item nav-link" href="/whiskeys">Whiskeys<span class="sr-only">(current)</span></a>
 				<a class="nav-item nav-link" href="/recipes">Cocktail Recipes</a>
 				<a class="nav-item nav-link" href="/bars">Locate a Bar</a>
-				<a class="nav-item nav-link" href="/logout">Log Out</a>
+				<a class="nav-item nav-link" href="/">Log Out</a>
 			</div>
 		</div>
 	</nav>
 
 
-	<div class="container">
-		<div class="jumbotron">
-			<h3>Whiskeys</h3>
-			<div class="row">
-				<div class="col-12 d-flex flex-row flex-wrap">
+	<div id="container" class="container">
+		<h3>Whiskeys</h3>
+		<div class="row">
+			<div class="col-12 d-flex flex-row flex-wrap">
 
-					{{#each Whiskey}}
-					<div class="card col-12 col-sm-4">
-						<div class="card-header">
-							{{this.whiskey_name}}
-						</div>
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item">
-								Rating:
-								{{#if this.rating}}
-								{{this.rating}}
-								{{else}}
-								N/A
-								{{/if}}
-							</li>
-							<li class="list-group-item">
-								Country:
-								{{#if this.country}}
-								{{this.country}}
-								{{else}}
-								N/A
-								{{/if}}
-							</li>
-							<li class="list-group-item">
-								Category:
-								{{#if this.category}}
-								{{this.category}}
-								{{else}}
-								N/A
-								{{/if}}
-							</li>
-							<li class="list-group-item">
-								Price:
-								{{#if this.price}}
-								${{this.price}}
-								{{else}}
-								N/A
-								{{/if}}
-							</li>
-							<li class="list-group-item">
-								ABV:
-								{{#if this.abv}}
-								{{this.abv}}%
-								{{else}}
-								N/A
-								{{/if}}
-							</li>
-							<li class="list-group-item">
-								Age:
-								{{#if this.age}}
-								{{this.age}}
-								{{else}}
-								N/A
-								{{/if}}
-							</li>
-							<li class="list-group-item">
-								Brand:
-								{{#if this.brand}}
-								{{this.brand}}
-								{{else}}
-								N/A
-								{{/if}}
-							</li>
-							<li class="list-group-item">
-								<button class="favorite btn btn-primary" data-id="{{this.id}}"
-									data-toggle={{#if this.favorite}}"unfave">Unfavorite?{{else}}"fave">Favorite?{{/if}}</button>
-							</li>
-						</ul>
+				{{#each Whiskey}}
+				<div class="card col-12 col-sm-4">
+					<div class="card-header">
+						{{this.whiskey_name}}
 					</div>
-					{{/each}}
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item">
+							Rating:
+							{{#if this.rating}}
+							{{this.rating}}
+							{{else}}
+							N/A
+							{{/if}}
+						</li>
+						<li class="list-group-item">
+							Country:
+							{{#if this.country}}
+							{{this.country}}
+							{{else}}
+							N/A
+							{{/if}}
+						</li>
+						<li class="list-group-item">
+							Category:
+							{{#if this.category}}
+							{{this.category}}
+							{{else}}
+							N/A
+							{{/if}}
+						</li>
+						<li class="list-group-item">
+							Price:
+							{{#if this.price}}
+							${{this.price}}
+							{{else}}
+							N/A
+							{{/if}}
+						</li>
+						<li class="list-group-item">
+							ABV:
+							{{#if this.abv}}
+							{{this.abv}}%
+							{{else}}
+							N/A
+							{{/if}}
+						</li>
+						<li class="list-group-item">
+							Age:
+							{{#if this.age}}
+							{{this.age}} years
+							{{else}}
+							N/A
+							{{/if}}
+						</li>
+						<li class="list-group-item">
+							Brand:
+							{{#if this.brand}}
+							{{this.brand}}
+							{{else}}
+							N/A
+							{{/if}}
+						</li>
+						<li class="list-group-item">
+							<button class="favorite btn btn-primary" data-id="{{this.id}}"
+								data-toggle={{#if this.favorite}}"unfave">Unfavorite?{{else}}"fave">Favorite?{{/if}}</button>
+						</li>
+					</ul>
 				</div>
+				{{/each}}
 			</div>
 		</div>
 	</div>

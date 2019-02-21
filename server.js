@@ -39,7 +39,7 @@ require("./app/config/passport/passport.js")(passport, models.user);
 
 //Sync Database
 models.sequelize
-	.sync({ force: true })
+	.sync()
 	.then(function () {
 		console.log("Nice! Database looks fine");
 		fs.readFile("app/db/recipes.sql", "utf8", (err, q) => {
