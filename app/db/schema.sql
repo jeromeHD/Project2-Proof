@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS whiskey_db;
+DROP DATABASE IF EXISTS hgr9gy5sm68mrpwl;
 
-CREATE DATABASE whiskey_db;
+CREATE DATABASE hgr9gy5sm68mrpwl;
 
-USE whiskey_db;
+USE hgr9gy5sm68mrpwl;

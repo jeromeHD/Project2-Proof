@@ -18,6 +18,10 @@ module.exports = (app, passport) => {
 		});
 	});
 
+	app.get("/addbar", isLoggedIn, (req, res) => {
+		res.render("newbar");
+	})
+
 	app.get("/recipes", isLoggedIn, (req, res) => {
 		control.getAllRecipes((data) => {
 			res.render("recipes", { Recipe: data });
