@@ -1,5 +1,3 @@
-USE whiskey_db;
-
 INSERT INTO whiskeys
     (whiskey_name, rating, country, category, price, abv, age, brand)
 VALUES
@@ -46,8 +44,7 @@ VALUES
     ("Bushmills 1608 Irish Whiskey Limited Edition", 74, "Ireland", "Blended", 90, 46, NULL, "Bushmills"),
     ("Michael Collins Single Malt Irish Whiskey", 74, "Ireland", "Single Malt", 40, 40, 10, "Wiser's"),
     ("Wiser's Legacy Canadian Whisky", 74, "Canada", "Blended", 50, 45, NULL, "Wiser's"),
-    ("\"
-Whyte & Mackay \"\"Old Luxury\"\" 19 Year Old Aged Blended Scotch Whisky\"", 74, "Scotland", "Blended", 58, 40, 19, "Whyte & Mackay"),
+    ("\"Whyte & Mackay \"\"Old Luxury\"\" 19 Year Old Aged Blended Scotch Whisky\"", 74, "Scotland", "Blended", 58, 40, 19, "Whyte & Mackay"),
 ("Glen Breton Rare 10 Year Old Single Malt Canadian Whisky", 75, "Canada", "Single Malt", 85, 43, 10, "Glen Breton"),
 ("Wasmund's Copper Fox Rye Whisky", 76, "USA", "Rye", 46, 45, 1, "Copper Fox"),
 ("Baker's Kentucky Straight Bourbon Whiskey", 76, "USA", "Bourbon", 38, 53, 7, "Jim Beam"),
