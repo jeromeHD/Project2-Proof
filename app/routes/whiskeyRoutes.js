@@ -13,20 +13,29 @@ module.exports = (app, passport) => {
 		else id = req.user.id;
 
 		control.getUser(id, (user) => {
-			console.log("user:" + JSON.stringify(user));
 			res.render("profile", { User: user });
 		});
 	});
 
+	app.get("/addbar", isLoggedIn, (req, res) => {
+		res.render("newbar");
+	});
+
+	app.post("/addbar", isLoggedIn, (req, res) => {
+		control.addBar(req.body.name, req.body.address, req.body.placeID, (data) => {
+			res.redirect("bars");
+		});
+	});
+
 	app.get("/recipes", isLoggedIn, (req, res) => {
-		control.getAllRecipes((data) => {
+		control.getAllRecipes(req.user.id, (data) => {
 			res.render("recipes", { Recipe: data });
 		});
 
 	});
 
 	app.get("/whiskeys", isLoggedIn, (req, res) => {
-		control.getAllWhiskeys((data) => {
+		control.getAllWhiskeys(req.user.id, (data) => {
 			res.render("whiskey", { Whiskey: data });
 		});
 	});
@@ -43,7 +52,10 @@ module.exports = (app, passport) => {
 	});
 
 	app.get("/bars", isLoggedIn, (req, res) => {
-		res.render("bars");
+		control.getAllBars(req.user.id, data => {
+			res.render("bars", { bars: data });
+		});
+
 	});
 
 	app.get("/signup", function (req, res) {
@@ -65,6 +77,13 @@ module.exports = (app, passport) => {
 
 	app.put("/whiskeyfave/:whiskey", (req, res) => {
 		control.toggleWhiskeyFavorite(req.user.id, req.params.whiskey);
+
+		res.status(200);
+		res.end();
+	});
+
+	app.put("/barfave/:bar", (req, res) => {
+		control.toggleBarFavorite(req.user.id, req.params.bar);
 
 		res.status(200);
 		res.end();

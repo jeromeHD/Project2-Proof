@@ -27,6 +27,14 @@ h4 {
 	font-family: "Nixie One", cursive;
 }
 
+#map {
+  height: 500px;
+}
+
+.map {
+  height: 200px;
+}
+
 /* Whiskey Page CSS*/
 
 #container-whiskey {

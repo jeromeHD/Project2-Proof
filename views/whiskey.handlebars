@@ -84,6 +84,10 @@
 							N/A
 							{{/if}}
 						</li>
+						<li class="list-group-item">
+							<button class="favorite btn btn-primary" data-id="{{this.id}}"
+								data-toggle={{#if this.favorite}}"unfave">Unfavorite?{{else}}"fave">Favorite?{{/if}}</button>
+						</li>
 					</ul>
 				</div>
 				{{/each}}
@@ -97,6 +101,16 @@
 				$.ajax({
 					method: "PUT",
 					url: "/whiskeyfave/" + $(event.currentTarget).data("id")
+				}).then(() => {
+					var butt = $(event.currentTarget);
+
+					if (butt.data("toggle") === "fave") {
+						butt.data("toggle", "unfave");
+						butt.text("Unfavorite?");
+					} else {
+						butt.data("toggle", "fave");
+						butt.text("Favorite?");
+					}
 				});
 			});
 		});

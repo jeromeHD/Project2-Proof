@@ -53,6 +53,7 @@ module.exports = function (sequelize, Sequelize) {
 	User.associate = (models) => {
 		User.hasMany(models.whiskeyFaves, { as: "Whiskeys" });
 		User.hasMany(models.faveRecipes, { as: "Recipes" });
+		User.hasMany(models.faveBars, { as: "Bars" });
 	}
 
 	return User;

@@ -1,0 +1,123 @@
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="/profile">Proof</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+			aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link" href="/whiskeys">Whiskeys</a>
+				<a class="nav-item nav-link" href="/recipes">Cocktail Recipes</a>
+				<a class="nav-item nav-link" href="/bars">Locate a Bar</a>
+				<a class="nav-item nav-link" href="/">Log Out</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container jumbotron">
+		<div class="row h-100">
+			<div class="col-12 col-sm-3">
+				<p>Search for bars!</p>
+				<input type="text" id="barName" placeholder="Bar">
+				<button id="search" class="btn btn-primary">Search</button>
+				<button id="select" class="btn btn-primary">Pick Selected Bar</button>
+			</div>
+
+			<div id="map" class="col-12 col-sm-9"></div>
+		</div>
+	</div>
+
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDenLsWmAmIc53qrRwdNpTZPQidd8dfV5g &libraries=places"></script>
+
+	<script>
+
+		var map;
+		var service;
+		var infowindow;
+		var selected;
+
+		function initMap() {
+			var raleigh = new google.maps.LatLng(35.780292, -78.6355412);
+
+			infowindow = new google.maps.InfoWindow();
+
+			map = new google.maps.Map(
+				document.getElementById('map'), { center: raleigh, zoom: 15 });
+
+			var request = constructQuery("Player's Retreat");
+
+			service = new google.maps.places.PlacesService(map);
+
+			service.findPlaceFromQuery(request, queryCB);
+		}
+
+		function createMarker(place) {
+			var marker = new google.maps.Marker({
+				map: map,
+				position: place.geometry.location
+			});
+			console.log(place);
+
+			google.maps.event.addListener(marker, 'click', function () {
+				infowindow.setContent(place.name + "<br>" + place.formatted_address);
+				infowindow.open(map, this);
+				selected = place;
+			});
+
+			return marker;
+		}
+
+		function constructQuery(place) {
+			return {
+				query: place,
+				fields: ['formatted_address', 'geometry', 'id', 'name', 'place_id'],
+				locationBias: map.getCenter()
+			}
+		}
+
+		function queryCB(results, status) {
+			if (status === google.maps.places.PlacesServiceStatus.OK) {
+				var firstMarker = createMarker(results[0]);
+				for (var i = 1; i < results.length; i++) {
+					createMarker(results[i]);
+				}
+
+				map.setCenter(results[0].geometry.location);
+				infowindow.setContent(results[0].name + "<br>"
+					+ results[0].formatted_address + "<br>");
+				infowindow.open(map, firstMarker);
+				selected = results[0];
+			}
+		}
+
+		$(document).ready(() => {
+			initMap();
+			$("#search").on("click", (event) => {
+				service.findPlaceFromQuery(constructQuery($("#barName").val().trim()), queryCB)
+			});
+
+			$("#select").on("click", (event) => {
+				console.log(selected);
+
+				$.ajax(
+					{
+						method: "post",
+						url: "/addbar",
+						data: {
+							name: selected.name,
+							address: selected.formatted_address,
+							placeID: selected.place_id
+						},
+					}
+				).then(() => {
+					window.location = "bars";
+				})
+			})
+		})
+	</script>
+
+
+</body>
