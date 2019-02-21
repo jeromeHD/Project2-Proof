@@ -52,9 +52,9 @@ module.exports = (app, passport) => {
 	});
 
 	app.get("/bars", isLoggedIn, (req, res) => {
-		control.getAllBars(data => {
+		control.getAllBars(req.user.id, data => {
 			res.render("bars", { bars: data });
-		})
+		});
 
 	});
 
@@ -77,6 +77,13 @@ module.exports = (app, passport) => {
 
 	app.put("/whiskeyfave/:whiskey", (req, res) => {
 		control.toggleWhiskeyFavorite(req.user.id, req.params.whiskey);
+
+		res.status(200);
+		res.end();
+	});
+
+	app.put("/barfave/:bar", (req, res) => {
+		control.toggleBarFavorite(req.user.id, req.params.bar);
 
 		res.status(200);
 		res.end();

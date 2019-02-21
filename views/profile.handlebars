@@ -121,10 +121,67 @@
 							{{/each}}
 
 						</div>
+
+						<h4 class="col-12">Favorite Bars</h4>
+						{{#each User.bars}}
+						<div class="card col-12">
+							<div class="card-header">
+								{{this.bar.bar_name}}
+							</div>
+
+							<div class="card-body">
+								<div class="map" data-place="{{this.bar.place_id}}"></div>
+							</div>
+						</div>
+						{{/each}}
 				</div>
 		</div>
 	</div>
-	</div>
+
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDenLsWmAmIc53qrRwdNpTZPQidd8dfV5g &libraries=places"></script>
+
+	<script>
+
+		$(document).ready(() => {
+			$(".map").each((index, elem) => {
+				var info = new google.maps.InfoWindow();
+
+				var map = new google.maps.Map(elem, { center: new google.maps.LatLng(0, 0), zoom: 15 });
+
+				var service = new google.maps.places.PlacesService(map);
+
+				console.log($(elem).data("place"));
+
+				service.getDetails({
+					placeId: $(elem).data("place"),
+					fields: ['name', 'geometry', 'formatted_address']
+				}, (place, status) => {
+					createMarker(place, map);
+				})
+			});
+		})
+
+		function createMarker(place, map) {
+			var marker = new google.maps.Marker({
+				map: map,
+				position: place.geometry.location
+			});
+
+			console.log(place);
+
+			var infowindow = new google.maps.InfoWindow();
+
+			map.setCenter(place.geometry.location);
+			infowindow.setContent(place.name + "<br>" + place.formatted_address);
+			infowindow.open(map, marker);
+
+			return marker;
+		}
+
+
+
+	</script>
 
 
 </body>

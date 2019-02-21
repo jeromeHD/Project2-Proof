@@ -34,9 +34,8 @@
 						<div class="map" data-place="{{this.place_id}}"></div>
 					</div>
 
-
-
-					<button class="favorite" data-id={{this.id}}>Favorite?</button>
+					<button class="favorite btn btn-primary" data-id="{{this.id}}"
+						data-toggle={{#if this.favorite}}"unfave">Unfavorite?{{else}}"fave">Favorite?{{/if}}</button>
 				</div>
 				{{/each}}
 
@@ -65,7 +64,24 @@
 				}, (place, status) => {
 					createMarker(place, map);
 				})
-			})
+			});
+
+			$(".favorite").on("click", (event) => {
+				$.ajax({
+					method: "PUT",
+					url: "/barfave/" + $(event.currentTarget).data("id")
+				}).then(() => {
+					var butt = $(event.currentTarget);
+
+					if (butt.data("toggle") === "fave") {
+						butt.data("toggle", "unfave");
+						butt.text("Unfavorite?");
+					} else {
+						butt.data("toggle", "fave");
+						butt.text("Favorite?");
+					}
+				});
+			});
 		})
 
 		function createMarker(place, map) {
@@ -84,6 +100,8 @@
 
 			return marker;
 		}
+
+
 
 	</script>
 </body>
