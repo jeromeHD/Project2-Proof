@@ -13,8 +13,12 @@ body {
   opacity: 0.8;
 }
 
+.container {
+  height: 75vh;
+  overflow-y: scroll;
+}
+
 h3 {
-  margin-bottom: 15px;
   font-family: "Nixie One", cursive;
 }
 
@@ -23,7 +27,6 @@ h2 {
 }
 
 h4 {
-	margin: 15px;
 	font-family: "Nixie One", cursive;
 }
 

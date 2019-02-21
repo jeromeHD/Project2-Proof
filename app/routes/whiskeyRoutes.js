@@ -3,7 +3,8 @@ var control = require("../controllers/whiskeyController");
 module.exports = (app, passport) => {
 
 	app.get("/", (req, res) => {
-		res.render("signin");
+		if (req.isAuthenticated()) res.redirect("profile");
+		else res.render("signin");
 	});
 
 	app.get("/profile", isLoggedIn, (req, res) => {
