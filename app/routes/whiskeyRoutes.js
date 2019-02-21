@@ -28,14 +28,14 @@ module.exports = (app, passport) => {
 	});
 
 	app.get("/recipes", isLoggedIn, (req, res) => {
-		control.getAllRecipes((data) => {
+		control.getAllRecipes(req.user.id, (data) => {
 			res.render("recipes", { Recipe: data });
 		});
 
 	});
 
 	app.get("/whiskeys", isLoggedIn, (req, res) => {
-		control.getAllWhiskeys((data) => {
+		control.getAllWhiskeys(req.user.id, (data) => {
 			res.render("whiskey", { Whiskey: data });
 		});
 	});

@@ -1,9 +1,16 @@
 var db = require("../models");
 
 module.exports = {
-	getAllWhiskeys: (cb) => {
-		db.whiskey.findAll().then((data) => {
-			cb(data);
+	getAllWhiskeys: (userID, cb) => {
+		db.whiskey.findAll().then((whiskeys) => {
+			db.whiskeyFaves.findAll({ where: { userId: userID } }).then(faves => {
+				faves.forEach(fave => {
+					whiskeys[whiskeys.findIndex((val, ind, arr) => {
+						return val.dataValues.id === fave.dataValues.whiskeyId;
+					})].favorite = true;
+				});
+				cb(whiskeys);
+			});
 		});
 	},
 
@@ -13,9 +20,16 @@ module.exports = {
 		});
 	},
 
-	getAllRecipes: (cb) => {
-		db.recipe.findAll().then(data => {
-			cb(data);
+	getAllRecipes: (userID, cb) => {
+		db.recipe.findAll().then(recipes => {
+			db.faveRecipes.findAll({ where: { userId: userID } }).then(faves => {
+				faves.forEach(fave => {
+					recipes[recipes.findIndex((val, ind, arr) => {
+						return val.dataValues.id === fave.dataValues.recipeId;
+					})].favorite = true;
+				});
+				cb(recipes);
+			});
 		});
 	},
 
