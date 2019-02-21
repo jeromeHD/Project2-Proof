@@ -1,34 +1,130 @@
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/profile">Proof<span class="sr-only">(current)</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/whiskeys">Whiskeys</a>
-                <a class="nav-item nav-link" href="/recipes">Cocktail Recipes</a>
-                <a class="nav-item nav-link" href="/bars">Locate a Bar</a>
-                <a class="nav-item nav-link" href="/">Log Out</a>
-            </div>
-        </div>
-    </nav>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="/profile">Proof<span class="sr-only">(current)</span></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+			aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link" href="/whiskeys">Whiskeys</a>
+				<a class="nav-item nav-link" href="/recipes">Cocktail Recipes</a>
+				<a class="nav-item nav-link" href="/bars">Locate a Bar</a>
+				<a class="nav-item nav-link" href="/">Log Out</a>
+			</div>
+		</div>
+	</nav>
 
 
-    <div class="container-profile">
-        <div class="row">
-            {{#each User}}
+	<div class="container-profile">
+		<div class="row">
+			<h2 class="col-12">{{User.firstname}}</h2>
+			<p class="col-12">{{User.email}}</p>
+			<p class="col-12"><a href="/profile?id={{User.id}}">Profile Link</a></p>
 
-            <h2>{{this.firstname}} {{this.lastname}}</h2>
-            <h4>{{this.username}}</h4>
-            {{!-- <p>{{this.about}}</p> --}}
-            {{!-- <p>{{this.favorite_bar}}</p> --}}
 
-            {{/each}}
-        </div>
-    </div>
+			<h4 class="col-12"> Favorite Whiskeys</h3>
+				<div class="row">
+					<div class="col-12 d-flex flex-row flex-wrap">
+
+						{{#each User.whiskeys}}
+						<div class="card col-12 col-sm-4">
+							<div class="card-header">
+								{{this.whiskey.whiskey_name}}
+							</div>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">
+									Rating:
+									{{#if this.whiskey.rating}}
+									{{this.whiskey.rating}}
+									{{else}}
+									N/A
+									{{/if}}
+								</li>
+								<li class="list-group-item">
+									Country:
+									{{#if this.whiskey.country}}
+									{{this.whiskey.country}}
+									{{else}}
+									N/A
+									{{/if}}
+								</li>
+								<li class="list-group-item">
+									Category:
+									{{#if this.whiskey.category}}
+									{{this.whiskey.category}}
+									{{else}}
+									N/A
+									{{/if}}
+								</li>
+								<li class="list-group-item">
+									Price:
+									{{#if this.whiskey.price}}
+									${{this.whiskey.price}}
+									{{else}}
+									N/A
+									{{/if}}
+								</li>
+								<li class="list-group-item">
+									ABV:
+									{{#if this.whiskey.abv}}
+									{{this.whiskey.abv}}%
+									{{else}}
+									N/A
+									{{/if}}
+								</li>
+								<li class="list-group-item">
+									Age:
+									{{#if this.whiskey.age}}
+									{{this.whiskey.age}}
+									{{else}}
+									N/A
+									{{/if}}
+								</li>
+								<li class="list-group-item">
+									Brand:
+									{{#if this.whiskey.brand}}
+									{{this.whiskey.brand}}
+									{{else}}
+									N/A
+									{{/if}}
+								</li>
+							</ul>
+						</div>
+						{{/each}}
+					</div>
+
+					<h4 class="col-12">Favorite Recipes</h3>
+
+						<div class="col-12 d-flex flex-row flex-wrap">
+
+							{{#each User.recipes}}
+
+							<div class="card col-12 col-sm-4">
+								<div class="card-header">
+									{{this.recipe.recipe_name}}
+								</div>
+
+								<ul class="list-group list-group-flush">
+
+									<li class="list-group-item">
+										{{this.recipe.ingredients}}
+									</li>
+									<li class="list-group-item">
+										<p>
+											{{this.recipe.prep}}
+										</p>
+									</li>
+								</ul>
+							</div>
+							{{/each}}
+
+						</div>
+				</div>
+		</div>
+	</div>
+	</div>
 
 
 </body>

@@ -1,40 +1,40 @@
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/profile">Proof</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/whiskeys">Whiskeys</a>
-                <a class="nav-item nav-link" href="/recipes">Cocktail Recipes<span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="/bars">Locate a Bar</a>
-                <a class="nav-item nav-link" href="/">Log Out</a>
-            </div>
-        </div>
-    </nav>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="/profile">Proof</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+			aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link" href="/whiskeys">Whiskeys</a>
+				<a class="nav-item nav-link" href="/recipes">Cocktail Recipes<span class="sr-only">(current)</span></a>
+				<a class="nav-item nav-link" href="/bars">Locate a Bar</a>
+				<a class="nav-item nav-link" href="/">Log Out</a>
+			</div>
+		</div>
+	</nav>
 
-    <div class="container-newrecipe">
-        <div class="row">
-            <form>
-                <div class="form-group">
-                    <label>Cocktail Name</label>
-                    <input type="text" class="form-control" placeholder="Cocktail">
-                </div>
-                <div class="form-group">
-                    <label>Ingredients</label>
-                    <input type="text" class="form-control" placeholder="Ingredients">
-                </div>
+	<div class="container-newrecipe">
+		<div class="row">
+			<form method="post" action="newrecipe">
+				<div class="form-group">
+					<label>Cocktail Name</label>
+					<input type="text" class="form-control" placeholder="Cocktail" name="name">
+				</div>
+				<div class="form-group">
+					<label>Ingredients</label>
+					<input type="text" class="form-control" placeholder="Ingredients" name="ingredients">
+				</div>
 
-                <div class="form-group">
-                    <label>Preparation and Instructions</label>
-                    <input type="text" class="form-control" placeholder="Prep">
-                </div>
-                <button type="submit" class="btn btn-primary">Add Recipe</button>
-            </form>
-        </div>
-    </div>
+				<div class="form-group">
+					<label>Preparation and Instructions</label>
+					<input type="text" class="form-control" placeholder="Prep" name="prep">
+				</div>
+				<input type="submit" class="btn btn-primary"></input>
+			</form>
+		</div>
+	</div>
 
 </body>
