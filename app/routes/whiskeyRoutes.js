@@ -123,7 +123,7 @@ module.exports = (app, passport) => {
 			var birthday = new Date(req.body.date);
 
 			if ((Date.now() - birthday) > (365 * 21 * 24 * 60 * 60 * 1000)) {
-				next()
+				next();
 			} else {
 				res.redirect("signup");
 			}
