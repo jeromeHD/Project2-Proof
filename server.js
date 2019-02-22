@@ -37,21 +37,25 @@ var whiskeyRoutes = require("./app/routes/whiskeyRoutes")(app, passport);
 //load passport strategies
 require("./app/config/passport/passport.js")(passport, models.user);
 
+var sync = { force: true };
+
 //Sync Database
 models.sequelize
-	.sync({ force: true })
+	.sync(sync)
 	.then(function () {
 		console.log("Nice! Database looks fine");
-		fs.readFile("app/db/recipes.sql", "utf8", (err, q) => {
-			if (err) throw err;
-			models.sequelize.query(q);
-			console.log("Recipe table is seeded");
-		});
-		fs.readFile("app/db/seeds.sql", "utf8", (err, q) => {
-			if (err) throw err;
-			models.sequelize.query(q);
-			console.log("Whiskey Table is seeded");
-		});
+		if (sync.force) {
+			fs.readFile("app/db/recipes.sql", "utf8", (err, q) => {
+				if (err) throw err;
+				models.sequelize.query(q);
+				console.log("Recipe table is seeded");
+			});
+			fs.readFile("app/db/seeds.sql", "utf8", (err, q) => {
+				if (err) throw err;
+				models.sequelize.query(q);
+				console.log("Whiskey Table is seeded");
+			});
+		}
 	})
 	.catch(function (err) {
 		console.log(err, "Something went wrong with the Database Update!");
