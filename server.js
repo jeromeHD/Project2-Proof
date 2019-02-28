@@ -37,7 +37,7 @@ var whiskeyRoutes = require("./app/routes/whiskeyRoutes")(app, passport);
 //load passport strategies
 require("./app/config/passport/passport.js")(passport, models.user);
 
-var sync = { force: true };
+var sync = { force: false };
 
 //Sync Database
 models.sequelize
